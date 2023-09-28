@@ -1,3 +1,5 @@
+// PROGRAMA05 - Criar uma função que imprima o horário atual do sistema e quantos minutos já passaram durante o dia
+
 function getHorarioAtual() { 
     /* Define a função 'getHorarioAtual', que cria uma 
     instância do objeto 'Date' chamada 'agora' que 
