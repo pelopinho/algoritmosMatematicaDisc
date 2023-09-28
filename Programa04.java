@@ -1,3 +1,5 @@
+<!-- PROGRAMA04 - Criar uma calculadora para realizar operações matemáticas básicas-->
+
 import java.util.Scanner; // importação da classe 'Scanner' que permite a entrada de dados pelo usuário
 public class Programa04 {
 
