@@ -1,0 +1,145 @@
+<!DOCTYPE html> <!--Esta linha declara o tipo de documento como HTML5-->
+<html lang="pt-br"><!--Aqui começa o elemento HTML principal, que define o idioma da página como português do Brasil-->
+<head> <!--Contém informações sobre o documento, como metadados e referências a recursos externos-->
+    <meta charset="UTF-8"> <!--Define a codificação de caracteres como UTF-8, possibilitando o uso de caracteres especiais-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Escala para dispositivos móveis (tamanho)-->
+    <title>Introdução à Matemática Discreta</title> <!--Título da página (localizado na guia)-->
+    <style> /* Tag usada para declarar os estilos CSS da página */
+
+        /* Regras utilizadas: */
+            /* background-color: define a cor de fundo */
+            /* color: cor do texto */
+            /* padding: espaçamento interno */
+            /* border-radius: curvatura dos cantos de um elemento */
+            /* display: define como os elementos são exibidos ('none' foi utilizado para ocultar os elementos inicialmente) */
+            /* opacity: define a opacidade dos elementos */
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1E2852; /* Azul Marinho */
+            color: #FFD700; /* Amarelo Dourado */
+            padding: 20px;
+            margin: 0;
+
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(30, 40, 82, 0.9); /* Azul Marinho com transparência */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Adicione uma classe "conceito" aos parágrafos dos conceitos */
+        .conceito {
+            line-height: 1.5;
+            display: none; /* Inicialmente, todos os parágrafos estão ocultos */
+            opacity: 0; /* Opacidade inicial */
+            transition: opacity 0.3s ease; /* Efeito de transição de opacidade */
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        /* Centraliza os botões horizontalmente */
+        div[meio] {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 50px; /* Espaço entre a introdução e os botões */
+            margin-bottom: 50px;
+        }
+
+        /* Estilo dos botões */
+        div[meio] button {
+            background-color: #FFD700; /* Amarelo Dourado */
+            color: #1E2852; /* Azul Marinho */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 780;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Efeitos de transição */
+        }
+
+        /* Efeito de hover para os botões */
+        div[meio] button:hover {
+            background-color: #FFA500; /* Laranja quando o mouse passar por cima */
+            transform: scale(1.1); /* Efeito de escala ao passar o mouse */
+        }
+    
+        .conceito {
+            line-height: 1.5;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out; /* Efeito de transição de opacidade */
+            margin-top: 35px;
+        }
+    </style>
+</head>
+<body> <!--Corpo da página onde o conteúdo visível é colocado-->
+    <!--O conteúdo inclui:-->
+        <!--<h1>: título principal para a página-->
+        <!--<p>: parágrafos introdutórios sobre matemática discreta-->
+        <!--<div meio>: Uma 'div' comn o atributo 'meio' que contém botões interativos-->
+        <!--<p> com id's: parágrafos que contém as informações sobre os conceitos de Matemática Discreta, cada uma com o ID correspondente aos botões interativos-->
+
+    <div class="container">
+        <h1>Conceitos Básicos de Matemática Discreta</h1>
+        <p>A matemática discreta é uma parte fundamental da matemática que lida com objetos e estruturas que são separados e distintos. Ela se concentra em conceitos como:</p>
+        
+        <div meio> 
+            <button onclick="toggleConceito('conjuntos')"> Conjuntos </button>
+            <button onclick="toggleConceito('logica')"> Lógica Proposicional </button>
+            <button onclick="toggleConceito('relacoes')"> Relações </button>
+            <button onclick="toggleConceito('funcoes')"> Funções </button>
+            <button onclick="toggleConceito('teoriaGrafos')"> Teoria dos Grafos </button>
+        </div>
+
+        <p id="conjuntos" class="conceito">Os Conjuntos se caracterizam como uma coleção de zero ou mais objetos distintos, chamados de elementos, os quais não possuem qualquer ordem associada.</p>
+        <p id="logica" class="conceito">A lógica proposicional é o estudo das proposições afirmativas de modo que podem ser verdadeiras ou falsas. Utiliza conectivos lógicos como negação, conjunção, disjunção, condicional e bicondicional (não, e, ou, se, se e somente se, respectivamente.).</p>
+        <p id="relacoes" class="conceito">As relações são conjuntos de pares ordenados onde cada um relaciona elementos de dois conjuntos diferentes.</p>
+        <p id="funcoes" class="conceito">As funções são relações especiais que associa cada elemento de um conjunto a exatamente um elemento de outro conjunto (relação entre domínio e contradomínio).</p>
+        <p id="teoriaGrafos" class="conceito">A teoria dos grafos é o estudo dos vértices (nós) e arestas (conexões) que ligam os vértices. Esta teoria envolve uma análise das propriedades e relações entre os nós e conexões de um grafo./p>
+
+        <script> /* Tag que declara a existência do código JavaScript responsável por mostrar/ocultar os parágrafos de conceito ao apertar os botões*/
+                        /* A função 'toggleConceito' é chamada quando um botão é clicado, controlando a exibição/ocultação dos parágrafos de conceito com base no ID atribuído */
+        
+            function toggleConceito(conceitoId) {
+                const conceito = document.getElementById(conceitoId);
+                const isVisible = getComputedStyle(conceito).display !== 'none';
+
+                if (isVisible) {
+                    conceito.style.opacity = 0;
+                    setTimeout(() => {
+                        conceito.style.display = 'none';
+                    }, 300); // Tempo da transição
+                } else {
+                    conceito.style.display = 'block';
+                    setTimeout(() => {
+                        conceito.style.opacity = 1;
+                    }, 0); // Iniciar transição
+                }
+            }
+        </script>
+
+        <!--Os textos a seguir foram formulados através das tags '<h1>', '<h2>', '<h4>' e '<p>' a fim de fornecer informações sobre
+            a Matemática Discreta, sua importância e sugestões de estudo adicional-->
+        <h2>Por que a Matemática Discreta é Importante?</h2>
+        <h4>A matemática discreta desempenha um papel crucial em ciência da computação, teoria da informação, criptografia e muitas outras áreas. Ela fornece as ferramentas necessárias para resolver problemas que envolvem elementos distintos e não contínuos.</h4>
+
+        <h2>Estudo Adicional</h2>
+        <p>Se você quiser aprender mais sobre matemática discreta, recomendamos explorar livros e recursos acadêmicos específicos sobre o assunto.</p>
+    </div>
+</body>
+</html>
